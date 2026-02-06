@@ -38,7 +38,7 @@ b
 import requests as r
 
 btc = "https://api4.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
-usd = "https://oapi.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=2ePkmyjmWEOy1ym1qC6Dlba1dcJ8J2m9&data=AP01"
+usd = "https://oapi.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey={한국수출입은행 API키}&data=AP01"
 
 r1 = r.get(btc).json()
 r2 = r.get(usd).json()
