@@ -33,3 +33,22 @@ print(a)
 b
 ```
 
+#### usd.py
+```python
+import requests as r
+
+btc = "https://api4.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+usd = "https://oapi.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=2ePkmyjmWEOy1ym1qC6Dlba1dcJ8J2m9&data=AP01"
+
+r1 = r.get(btc).json()
+r2 = r.get(usd).json()
+
+usd_krw = float(
+    [x['deal_bas_r'] for x in r2 if x['cur_unit'] == 'USD'][0]
+    .replace(',', '')
+)
+
+r3 = float(r1['price']) * usd_krw
+
+print(f"{int(r3):,}", "원")
+```
